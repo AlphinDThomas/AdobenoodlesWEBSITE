@@ -1,26 +1,288 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+  --background: #FFF8E7;
+  --foreground: #1A1A1A;
+  --primary: #FFD966;
+  --accent: #FF3C32;
+  --sauce: #FF8C42;
+  --creative: #A259F7;
+  --fresh: #4ADE80;
+  --deepblue: #2563EB;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-sauce: var(--sauce);
+  --color-creative: var(--creative);
+  --color-fresh: var(--fresh);
+  --color-deepblue: var(--deepblue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A1A1A;
+    --foreground: #FFF8E7;
+    --primary: #FFD966;
+    --accent: #FF3C32;
+    --sauce: #FF8C42;
+    --creative: #A259F7;
+    --fresh: #4ADE80;
+    --deepblue: #2563EB;
   }
 }
+
+/** Global dark mode styles **/
+html.dark, body.dark, .dark {
+  background-color: #18181b !important;
+  color: #f3f4f6 !important;
+}
+body.dark {
+  background: #18181b !important;
+}
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #FFD966 !important;
+}
+.dark .bg-white, .dark .bg-white\/90, .dark .bg-[#fff8e7], .dark .bg-[#fff8e7]\/80 {
+  background-color: #232323 !important;
+}
+.dark .bg-[#FFD966] { background-color: #33331a !important; }
+.dark .bg-[#FF8C42] { background-color: #442a1a !important; }
+.dark .text-[#c97a2b], .dark .text-[#7c4a03] { color: #FFD966 !important; }
+.dark .text-[#FF8C42] { color: #FFD966 !important; }
+.dark .border-[#FFD966], .dark .border-[#FFD966]\/40, .dark .border-[#FFD966]\/30 { border-color: #FFD966 !important; }
+.dark .shadow-2xl, .dark .shadow-xl, .dark .shadow-lg { box-shadow: 0 8px 40px #FFD96633, 0 2px 8px #0008 !important; }
+.dark .font-mono { color: #FFD966 !important; }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  animation: gradient-move 3s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+[data-sheen] {
+  will-change: transform;
+}
+.group:hover [data-sheen] {
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+}
+
+.font-mono {
+  font-family: 'Fira Mono', monospace;
+}
+
+/* Custom font class for Lato */
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff8e7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF8C42;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD966;
+}
+
+/* Animation classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Parallax background animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Wavy underline animation for Navbar */
+.group:hover .wavy-underline {
+  transform: scaleX(1) !important;
+}
+.wavy-underline {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+@keyframes bowl-fly-left {
+  0% { left: 0; top: 0; transform: rotate(-20deg) scale(1); }
+  50% { left: 60vw; top: 30px; transform: rotate(20deg) scale(1.1); }
+  100% { left: 100vw; top: 0; transform: rotate(0deg) scale(1); }
+}
+@keyframes bowl-fly-right {
+  0% { right: 0; top: 0; transform: rotate(20deg) scale(1); }
+  50% { right: 60vw; top: 40px; transform: rotate(-20deg) scale(1.1); }
+  100% { right: 100vw; top: 0; transform: rotate(0deg) scale(1); }
+}
+.animate-bowl-fly-left {
+  animation: bowl-fly-left 12s linear infinite;
+}
+.animate-bowl-fly-right {
+  animation: bowl-fly-right 14s linear infinite;
+}
+
+.hero-glow-card {
+  box-shadow: 0 0 32px 0 #FFD96688, 0 0 64px 0 #FF8C4288;
+  animation: hero-glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes hero-glow {
+  0% {
+    box-shadow: 0 0 32px 0 #FFD96688, 0 0 64px 0 #FF8C4288;
+  }
+  100% {
+    box-shadow: 0 0 48px 8px #FFD966cc, 0 0 96px 16px #FF8C42cc;
+  }
 }
