@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import DecryptedText from "./DecryptedText";
+import Image from "next/image";
 
 function FloatingOrbs({ count = 8 }) {
   const [orbs, setOrbs] = useState([]);
@@ -129,9 +130,11 @@ function CreatorCard({ creator, index }) {
           className="w-24 h-24 mb-4 rounded-full bg-[#FFD966] flex items-center justify-center text-3xl text-[#c97a2b] font-bold shadow-2xl shadow-[#FFD966]/40 group-hover:shadow-[#FF8C42]/60 transition-shadow duration-300 overflow-hidden"
         >
           {creator.avatar ? (
-            <img 
+            <Image 
               src={creator.avatar} 
               alt={creator.name}
+              width={96}
+              height={96}
               className="w-full h-full object-cover"
               style={{
                 imageRendering: 'high-quality',

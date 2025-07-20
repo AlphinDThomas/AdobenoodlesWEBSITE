@@ -91,7 +91,7 @@ export default function StatsSection() {
               </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-lg leading-relaxed font-mono">
-              We've achieved remarkable milestones through dedication, innovation, and unwavering commitment to excellence.
+              We&apos;ve achieved remarkable milestones through dedication, innovation, and unwavering commitment to excellence.
             </p>
           </div>
 

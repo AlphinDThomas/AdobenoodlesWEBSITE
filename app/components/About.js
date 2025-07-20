@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from "next/image";
 
 const aboutText = `At Adobe Noodles, we believe creativity shouldn't be bland — it should be bold, spicy, and instantly satisfying. Born from a late-night brainstorm between design nerds and noodle fanatics, Adobe Noodles is where the flavor of visual storytelling meets the slurp of instant inspiration.`;
 
@@ -87,7 +88,7 @@ export default function About() {
       {/* Hero: Logo + About + Noodle underline */}
       <div className="mb-8 flex flex-col items-center z-10">
         <div className="w-28 h-28 rounded-full bg-[#FFD966] flex items-center justify-center shadow-2xl mb-2 border-4 border-[#FF8C42]/30 overflow-hidden">
-          <img src="/adobee.png" alt="Adobe Noodles Logo" className="w-20 h-20 object-contain" />
+          <Image src="/adobee.png" alt="Adobe Noodles Logo" width={80} height={80} className="w-20 h-20 object-contain" />
         </div>
         <h1 className="text-6xl md:text-8xl font-bebas text-[#c97a2b] tracking-wider mb-2 mt-2 relative z-10">About
           <svg width="180" height="18" className="absolute left-1/2 -translate-x-1/2 bottom-[-18px]" viewBox="0 0 180 18" fill="none"><path d="M10 9 Q 60 0 90 9 T 170 9" stroke="#FF8C42" strokeWidth="6" fill="none"/></svg>

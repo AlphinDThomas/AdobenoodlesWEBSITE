@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 function ChromaticText({ children }) {
   const ref = useRef();
@@ -292,10 +293,12 @@ export default function Hero() {
 
       {/* Bowl image at the bottom, big and behind all content */}
       <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full flex justify-center pointer-events-none" style={{zIndex: 0, height:'50vw', minHeight:'320px', maxHeight:'600px'}}>
-        <img
+        <Image
           ref={bowlRef}
           src="/noodle.png"
           alt="Bowl"
+          width={1200}
+          height={600}
           style={{
             width: '100vw',
             maxWidth: '1200px',
@@ -316,9 +319,9 @@ export default function Hero() {
       {showHero && (
         <>
           {/* Animated flying bowls in the background */}
-          <img src="/bowl.png" alt="Flying Bowl" className="hidden md:block absolute top-0 left-0 z-0 opacity-30 animate-bowl-fly-left" style={{ width: '120px', height: 'auto', pointerEvents: 'none' }} />
-          <img src="/bowl.png" alt="Flying Bowl" className="hidden md:block absolute top-8 right-0 z-0 opacity-20 animate-bowl-fly-right" style={{ width: '90px', height: 'auto', pointerEvents: 'none', animationDelay: '2s' }} />
-          <img src="/bowl.png" alt="Flying Bowl" className="hidden md:block absolute top-20 left-0 z-0 opacity-20 animate-bowl-fly-left" style={{ width: '70px', height: 'auto', pointerEvents: 'none', animationDelay: '4s' }} />
+          <Image src="/bowl.png" alt="Flying Bowl" width={120} height={80} className="hidden md:block absolute top-0 left-0 z-0 opacity-30 animate-bowl-fly-left" style={{ pointerEvents: 'none' }} />
+          <Image src="/bowl.png" alt="Flying Bowl" width={90} height={60} className="hidden md:block absolute top-8 right-0 z-0 opacity-20 animate-bowl-fly-right" style={{ pointerEvents: 'none', animationDelay: '2s' }} />
+          <Image src="/bowl.png" alt="Flying Bowl" width={70} height={50} className="hidden md:block absolute top-20 left-0 z-0 opacity-20 animate-bowl-fly-left" style={{ pointerEvents: 'none', animationDelay: '4s' }} />
           {/* Main Hero Content */}
           <div ref={contentRef} className="relative z-10 flex flex-col items-center justify-center w-full px-4 max-w-5xl mx-auto pt-24">
             {/* Static SVG doodles around headline */}
