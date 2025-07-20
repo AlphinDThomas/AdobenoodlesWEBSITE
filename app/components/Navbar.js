@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Products", href: "#products" },
-  { name: "Recipes", href: "#recipes" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
@@ -94,7 +93,7 @@ export default function Navbar() {
                     active === link.href.slice(1)
                       ? "text-white bg-gradient-to-r from-[var(--sauce)]/80 to-[var(--primary)]/80 shadow-lg shadow-[var(--sauce)]/20"
                       : "text-[#c97a2b]"
-                  }`}
+                  } ${active !== link.href.slice(1) ? 'hover:underline hover:decoration-[var(--sauce)] hover:decoration-4' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     const targetId = link.href.slice(1);
@@ -108,42 +107,8 @@ export default function Navbar() {
                   <div className={`absolute inset-0 bg-gradient-to-r from-[var(--sauce)]/60 to-[var(--primary)]/60 rounded-xl transition-all duration-500 ease-out ${
                     active === link.href.slice(1) ? 'opacity-100' : 'opacity-0'
                   }`} />
-                  {/* Noodle hover effect removed from navbar links */}
-                  
                   {/* Text */}
-                  <span className="relative z-10 transition-all duration-300">{link.name}</span>
-                  
-                  {/* Bottom Border Animation - Only on hover, not active */}
-                  <span className="absolute bottom-0 left-0 w-full h-5 pointer-events-none overflow-hidden mt-8">
-                    <svg
-                      width="100%"
-                      height="12"
-                      viewBox="0 0 100 12"
-                      fill="none"
-                      className="w-full h-full group-hover:opacity-100 opacity-0 transition-opacity duration-300"
-                      style={{ display: 'block' }}
-                    >
-                      <path
-                        d="M0 6 Q 20 0 40 6 T 100 6"
-                        stroke="url(#noodle-hover)"
-                        strokeWidth="3"
-                        fill="none"
-                      >
-                        <animate attributeName="d" values="M0 6 Q 20 0 40 6 T 100 6;M0 6 Q 20 12 40 6 T 100 6;M0 6 Q 20 0 40 6 T 100 6" dur="1.2s" repeatCount="indefinite"/>
-                      </path>
-                      <defs>
-                        <linearGradient id="noodle-hover" x1="0" y1="6" x2="100" y2="6" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#FFD966"/>
-                          <stop offset="0.5" stopColor="#FF8C42"/>
-                          <stop offset="1" stopColor="#FF3C32"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </span>
-                  
-                  {/* Hover Scale Effect */}
-                  {/* Removed hover scale effect */}
-                  
+                  <span className={`relative z-10 transition-all duration-300 ${active !== link.href.slice(1) ? 'wiggle-hover' : ''}`}>{link.name}</span>
                   {/* Active State Glow */}
                   <div className={`absolute inset-0 rounded-xl transition-all duration-500 ease-out ${
                     active === link.href.slice(1) 
@@ -285,4 +250,17 @@ export default function Navbar() {
       )}
     </nav>
   );
-} 
+}
+
+<style jsx global>{`
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  20% { transform: rotate(2deg); }
+  40% { transform: rotate(-2deg); }
+  60% { transform: rotate(2deg); }
+  80% { transform: rotate(-2deg); }
+}
+.wiggle-hover:hover {
+  animation: wiggle 0.4s ease-in-out;
+}
+`}</style> 
